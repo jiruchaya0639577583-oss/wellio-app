@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELLIO - Smart Health, Made Personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Kanit', sans-serif; background-color: #F4F7F5; color: #2C3E35; }
+        .active-nav { background-color: #E8F5E9; color: #2D6A4F; font-weight: 600; }
+        .page { display: none; }
+        .page.active { display: block; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- GLOBAL APP CONTAINER -->
+    <div id="app" class="flex-1 flex flex-col min-h-screen">
+
+        <!-- UNAUTHENTICATED LAYOUT (PAGE 00 - PAGE 04) -->
+        <div id="public-layout" class="flex-1 flex flex-col">
+            
+            <!-- PAGE 00: HELLO WELLIO -->
+            <div id="page-00" class="page active flex-1 flex flex-col justify-center items-center text-center p-6 bg-gradient-to-br from-[#E8F5E9] via-[#F4F7F5] to-[#E0F2FE]">
+                <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-xl mb-6 text-5xl animate-pulse">🌿</div>
+                <h2 class="text-sm tracking-widest text-[#52796F] font-semibold mb-1">HELLO,</h2>
+                <h1 class="text-6xl font-extrabold text-[#1B4332] tracking-tight mb-2">WELLIO</h1>
+                <p class="text-xl text-[#40916C] mb-8 font-medium">Smart Health, Made Personal.</p>
+                <button onclick="navigateTo('page-01')" class="bg-[#2D6A4F] hover:bg-[#1B4332] text-white text-lg font-medium px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5">
+                    Get Started →
+                </button>
+                <p class="text-xs text-gray-400 mt-6">Your personal wellness journey starts here.</p>
+            </div>
+
+            <!-- PAGE 01: LANDING PAGE -->
+            <div id="page-01" class="page flex-1 flex flex-col bg-white">
+                <nav class="flex items-center justify-between px-8 py-4 border-b border-gray-100">
+                    <div class="flex items-center gap-2">
+                        <span class="text-2xl">🌿</span>
+                        <span class="text-2xl font-bold text-[#1B4332]">WELLIO</span>
+                    </div>
+                    <div class="hidden md:flex gap-8 text-gray-600 font-medium">
+                        <a href="#" class="text-[#2D6A4F]">Home</a>
+                        <a href="#">Features</a>
+                        <a href="#">How It Works</a>
+                        <a href="#">About</a>
+                    </div>
+                    <button onclick="navigateTo('page-02')" class="bg-[#2D6A4F] text-white px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-[#1B4332] transition">Get Started</button>
+                </nav>
+                <div class="flex-1 max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold text-[#1B4332] leading-tight mb-4">สุขภาพที่ดี <br>เริ่มต้นในแบบของคุณ</h1>
+                        <p class="text-gray-600 text-lg mb-8">ให้ WELLIO ช่วยสร้างแผนสุขภาพที่เหมาะกับไลฟ์สไตล์ เป้าหมาย และความต้องการของคุณ</p>
+                        <div class="flex gap-4">
+                            <button onclick="navigateTo('page-02')" class="bg-[#2D6A4F] text-white px-8 py-3.5 rounded-2xl font-medium shadow-md hover:bg-[#1B4332] transition">เริ่มต้นใช้งาน</button>
+                            <button onclick="alert('WELLIO คือระบบวิเคราะห์สุขภาพอัจฉริยะสำหรับคุณ')" class="bg-[#E8F5E9] text-[#2D6A4F] px-6 py-3.5 rounded-2xl font-medium hover:bg-[#D8F3DC] transition">ดูวิธีการทำงาน</button>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-tr from-[#D8F3DC] to-[#E0F2FE] rounded-3xl p-8 flex items-center justify-center min-h-[320px] shadow-inner text-center">
+                        <div>
+                            <div class="text-6xl mb-4">🥗 🏃 💧 😴</div>
+                            <span class="bg-white/80 backdrop-blur px-4 py-2 rounded-full text-xs font-semibold text-[#2D6A4F] border border-white">AI Personal Wellness Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 02: PERSONAL INFORMATION -->
+            <div id="page-02" class="page flex-1 max-w-xl mx-auto w-full p-6">
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 mt-6">
+                    <span class="text-xs font-semibold text-[#40916C] tracking-wide">01 ข้อมูลส่วนตัว</span>
+                    <h2 class="text-2xl font-bold text-[#1B4332] mt-1 mb-2">สร้างโปรไฟล์สุขภาพของคุณ</h2>
+                    <p class="text-sm text-gray-500 mb-6">ข้อมูลของคุณจะช่วยให้ WELLIO สร้างคำแนะนำที่เหมาะกับคุณ</p>
+                    
+                    <form class="space-y-4" onsubmit="event.preventDefault(); navigateTo('page-03');">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">ชื่อเล่น</label>
+                            <input type="text" value="อเล็กซ์" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#2D6A4F]">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-700 mb-1">อายุ</label>
+                                <input type="number" value="21" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#2D6A4F]">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-700 mb-1">เพศ</label>
+                                <select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#2D6A4F]">
+                                    <option>ชาย</option>
+                                    <option>หญิง</option>
+                                    <option>อื่นๆ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-700 mb-1">น้ำหนักปัจจุบัน (กก.)</label>
+                                <input type="number" value="65" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#2D6A4F]">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-700 mb-1">ส่วนสูง (ซม.)</label>
+                                <input type="number" value="175" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#2D6A4F]">
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4">
+                            <label class="block text-xs font-medium text-gray-700 mb-2">เป้าหมายของคุณ</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-gray-50 cursor-pointer text-sm">
+                                    <input type="radio" name="goal" checked class="text-[#2D6A4F]">
+                                    <span class="ml-2 text-gray-700">ดูแลสุขภาพโดยรวม</span>
+                                </label>
+                                <label class="flex items-center p-3 border rounded-xl hover:bg-gray-50 cursor-pointer text-sm">
+                                    <input type="radio" name="goal" class="text-[#2D6A4F]">
+                                    <span class="ml-2 text-gray-700">เพิ่มกิจกรรมในชีวิตประจำวัน</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 pt-6">
+                            <button type="button" onclick="navigateTo('page-01')" class="flex-1 border border-gray-200 text-gray-600 py-3 rounded-xl font-medium text-sm hover:bg-gray-50">ย้อนกลับ</button>
+                            <button type="submit" class="flex-1 bg-[#2D6A4F] text-white py-3 rounded-xl font-medium text-sm hover:bg-[#1B4332]">ถัดไป →</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- PAGE 03: LIFESTYLE & FOOD PREFERENCES -->
+            <div id="page-03" class="page flex-1 max-w-xl mx-auto w-full p-6">
+                <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 mt-6">
+                    <span class="text-xs font-semibold text-[#40916C] tracking-wide">02 ไลฟ์สไตล์ & อาหาร</span>
+                    <h2 class="text-2xl font-bold text-[#1B4332] mt-1 mb-2">บอกเราเกี่ยวกับไลฟ์สไตล์ของคุณ</h2>
+                    <p class="text-sm text-gray-500 mb-6">WELLIO จะใช้ข้อมูลเหล่านี้เพื่อปรับคำแนะนำให้เข้ากับคุณ</p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-2">ระดับกิจกรรม</label>
+                            <div class="grid grid-cols-2 gap-2 text-xs">
+                                <button class="p-3 border border-[#2D6A4F] bg-[#E8F5E9] text-[#2D6A4F] rounded-xl font-medium">ออกกำลังกายเล็กน้อย</button>
+                                <button class="p-3 border rounded-xl text-gray-600 hover:bg-gray-50">ออกกำลังกายเป็นประจำ</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-2">อาหารที่แพ้</label>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <label class="px-3 py-1.5 border rounded-lg bg-red-50 border-red-200 text-red-600 cursor-pointer">นม</label>
+                                <label class="px-3 py-1.5 border rounded-lg hover:bg-gray-50 cursor-pointer">กุ้ง</label>
+                                <label class="px-3 py-1.5 border rounded-lg hover:bg-gray-50 cursor-pointer">ถั่ว</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-2">อาหารที่ชอบ</label>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 bg-[#E8F5E9] text-[#2D6A4F] rounded-full">ข้าว</span>
+                                <span class="px-3 py-1 bg-[#E8F5E9] text-[#2D6A4F] rounded-full">ไก่</span>
+                                <span class="px-3 py-1 bg-[#E8F5E9] text-[#2D6A4F] rounded-full">ปลา</span>
+                                <span class="px-3 py-1 bg-[#E8F5E9] text-[#2D6A4F] rounded-full">ผัก</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 pt-4">
+                            <button onclick="navigateTo('page-02')" class="flex-1 border border-gray-200 text-gray-600 py-3 rounded-xl font-medium text-sm">← ย้อนกลับ</button>
+                            <button onclick="navigateTo('page-04')" class="flex-1 bg-[#2D6A4F] text-white py-3 rounded-xl font-medium text-sm hover:bg-[#1B4332]">ถัดไป →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 04: PERSONAL HEALTH SUMMARY & AI GENERATING -->
+            <div id="page-04" class="page flex-1 max-w-xl mx-auto w-full p-6">
+                <div id="summary-view" class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 mt-6">
+                    <span class="text-xs font-semibold text-[#40916C] tracking-wide">03 ตรวจสอบข้อมูล</span>
+                    <h2 class="text-2xl font-bold text-[#1B4332] mt-1 mb-2">ตรวจสอบข้อมูลของคุณ</h2>
+                    <p class="text-sm text-gray-500 mb-6">ตรวจสอบข้อมูลก่อนให้ WELLIO สร้างแผนเฉพาะบุคคล</p>
+
+                    <div class="space-y-4 text-xs">
+                        <div class="p-4 bg-gray-50 rounded-2xl">
+                            <div class="flex justify-between font-semibold mb-1"><span>ข้อมูลส่วนตัว</span><a href="#" onclick="navigateTo('page-02')" class="text-[#2D6A4F]">แก้ไข</a></div>
+                            <p class="text-gray-600">อเล็กซ์ • 21 ปี • เพศชาย • 65 กก. • 175 ซม.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-2xl">
+                            <div class="flex justify-between font-semibold mb-1"><span>เป้าหมายสุขภาพ</span><a href="#" onclick="navigateTo('page-02')" class="text-[#2D6A4F]">แก้ไข</a></div>
+                            <p class="text-gray-600">ดูแลสุขภาพโดยรวม • ออกกำลังกายเล็กน้อย</p>
+                        </div>
+                    </div>
+
+                    <button onclick="startAiProcessing()" class="w-full mt-8 bg-[#2D6A4F] text-white py-4 rounded-2xl font-medium text-base hover:bg-[#1B4332] shadow-lg transition">
+                        ✨ สร้างแผน WELLIO
+                    </button>
+                </div>
+
+                <!-- AI Processing Overlay -->
+                <div id="ai-loading" class="hidden bg-white rounded-3xl p-12 shadow-sm border border-gray-100 mt-6 text-center space-y-4">
+                    <div class="w-16 h-16 border-4 border-[#2D6A4F] border-t-transparent rounded-full animate-spin mx-auto"></div>
+                    <h3 class="text-lg font-bold text-[#1B4332]">กำลังวิเคราะห์ข้อมูลของคุณ...</h3>
+                    <p class="text-xs text-gray-500">WELLIO AI กำลังคำนวณและปรับแผนโภชนาการและการนอนที่เหมาะสมกับคุณ</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- AUTHENTICATED APP LAYOUT (PAGE 05 - PAGE 12 WITH PERSISTENT SIDEBAR) -->
+        <div id="app-layout" class="hidden flex-1 flex h-screen overflow-hidden">
+            
+            <!-- PERSISTENT SIDEBAR -->
+            <aside class="w-64 bg-white border-r border-gray-100 flex flex-col justify-between p-6">
+                <div>
+                    <div class="flex items-center gap-2 mb-8">
+                        <span class="text-2xl">🌿</span>
+                        <span class="text-xl font-bold text-[#1B4332]">WELLIO</span>
+                    </div>
+
+                    <nav class="space-y-1 text-sm font-medium">
+                        <button onclick="navigateToApp('page-05')" id="nav-page-05" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left active-nav">🏠 Dashboard</button>
+                        <button onclick="navigateToApp('page-06')" id="nav-page-06" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">🍱 Nutrition</button>
+                        <button onclick="navigateToApp('page-07')" id="nav-page-07" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">🏃 Exercise</button>
+                        <button onclick="navigateToApp('page-08')" id="nav-page-08" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">💧 Hydration</button>
+                        <button onclick="navigateToApp('page-09')" id="nav-page-09" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">😴 Sleep</button>
+                        <button onclick="navigateToApp('page-10')" id="nav-page-10" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">📈 Progress</button>
+                        <button onclick="navigateToApp('page-11')" id="nav-page-11" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">🤖 WELLIO AI</button>
+                    </nav>
+                </div>
+
+                <div class="space-y-1 text-sm font-medium border-t pt-4 border-gray-100">
+                    <button onclick="navigateToApp('page-12')" id="nav-page-12" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">👤 Profile</button>
+                    <button onclick="alert('Settings')" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left text-gray-600 hover:bg-gray-50">⚙️ Settings</button>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT AREA -->
+            <main class="flex-1 flex flex-col overflow-y-auto">
+                <!-- TOP NAVIGATION -->
+                <header class="bg-white border-b border-gray-100 px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+                    <h2 id="app-title" class="text-lg font-bold text-[#1B4332]">Dashboard</h2>
+                    <div class="flex items-center gap-4">
+                        <button class="p-2 rounded-full hover:bg-gray-100">🔔</button>
+                        <div class="flex items-center gap-2 cursor-pointer" onclick="navigateToApp('page-12')">
+                            <div class="w-8 h-8 bg-[#E8F5E9] text-[#2D6A4F] rounded-full flex items-center justify-center font-bold text-xs">A</div>
+                            <span class="text-xs font-semibold text-gray-700">อเล็กซ์</span>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="p-8 max-w-5xl w-full mx-auto">
+                    
+                    <!-- PAGE 05: DASHBOARD -->
+                    <div id="page-05" class="app-page space-y-6">
+                        <div>
+                            <h1 class="text-2xl font-bold text-[#1B4332]">สวัสดี 👋</h1>
+                            <p class="text-sm text-gray-500">พร้อมดูแลตัวเองวันนี้หรือยัง?</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                <span class="text-xs text-gray-400">🎯 Wellness Goal</span>
+                                <p class="text-lg font-bold text-[#2D6A4F] mt-1">กำลังทำได้ดี</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                <span class="text-xs text-gray-400">🍱 Nutrition</span>
+                                <p class="text-lg font-bold text-[#2D6A4F] mt-1">3 / 3 มื้อ</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                <span class="text-xs text-gray-400">🏃 Activity</span>
+                                <p class="text-lg font-bold text-[#2D6A4F] mt-1">30 นาที</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                <span class="text-xs text-gray-400">💧 Hydration</span>
+                                <p class="text-lg font-bold text-[#2D6A4F] mt-1">5 / 8 แก้ว</p>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="md:col-span-2 bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center justify-around">
+                                <div class="w-32 h-32 rounded-full border-8 border-[#2D6A4F] flex flex-col items-center justify-center text-center">
+                                    <span class="text-3xl font-extrabold text-[#1B4332]">78</span>
+                                    <span class="text-[10px] text-gray-400">Wellness Score</span>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-[#1B4332] text-lg">Your Wellness Overview</h3>
+                                    <p class="text-xs text-gray-500 mt-1 max-w-xs">คุณกำลังสร้างพฤติกรรมสุขภาพที่ดีอย่างต่อเนื่อง</p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm space-y-3">
+                                <h3 class="font-bold text-[#1B4332] text-sm">วันนี้สำหรับคุณ</h3>
+                                <ul class="text-xs text-gray-600 space-y-2">
+                                    <li>• ดื่มน้ำเพิ่ม 3 แก้ว</li>
+                                    <li>• เดิน 30 นาที</li>
+                                    <li>• พักผ่อนให้เพียงพอ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 06: NUTRITION -->
+                    <div id="page-06" class="app-page space-y-6 hidden">
+                        <h1 class="text-2xl font-bold text-[#1B4332]">Nutrition</h1>
+                        <p class="text-sm text-gray-500">แผนอาหารที่เหมาะกับคุณ</p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                <span class="text-xs font-semibold text-[#2D6A4F]">Breakfast</span>
+                                <h4 class="font-bold text-[#1B4332] mt-1">ข้าวต้มปลา</h4>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                <span class="text-xs font-semibold text-[#2D6A4F]">Lunch</span>
+                                <h4 class="font-bold text-[#1B4332] mt-1">ข้าวไก่ย่าง + ผัก</h4>
+                            </div>
+                            <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+                                <span class="text-xs font-semibold text-[#2D6A4F]">Dinner</span>
+                                <h4 class="font-bold text-[#1B4332] mt-1">สุกี้น้ำ</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 07: EXERCISE -->
+                    <div id="page-07" class="app-page space-y-6 hidden">
+                        <h1 class="text-2xl font-bold text-[#1B4332]">Exercise</h1>
+                        <p class="text-sm text-gray-500">กิจกรรมที่เหมาะกับคุณในวันนี้</p>
+                        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+                            <h3 class="font-bold text-[#1B4332] mb-4">Today's Activity (30 นาที)</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
+                                    <span class="text-sm font-medium">🚶 เดินเร็ว (15 นาที)</span>
+                                    <button class="bg-[#2D6A4F] text-white px-4 py-1.5 rounded-lg text-xs">เริ่ม</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 08: HYDRATION -->
+                    <div id="page-08" class="app-page space-y-6 hidden">
+                        <h1 class="text-2xl font-bold text-[#1B4332]">Hydration</h1>
+                        <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm text-center">
+                            <span class="text-4xl">💧</span>
+                            <h2 class="text-3xl font-bold text-[#1B4332] my-2">5 / 8 แก้ว</h2>
+                            <button class="bg-[#2D6A4F] text-white px-6 py-2.5 rounded-xl text-sm font-medium mt-4">+ เพิ่มน้ำ 1 แก้ว</button>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 09: SLEEP -->
+                    <div id="page-09" class="app-page space-y-6 hidden">
+                        <h1 class="text-2xl font-bold text-[#1B4332]">Sleep</h1>
+                        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+                            <span class="text-xs text-gray-400">เมื่อคืนคุณนอน</span>
+                            <h2 class="text-2xl font-bold text-[#1B4332] mt-1">7 ชม. 20 นาที</h2>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 10: PROGRESS -->
+                    <div id="page-10" class="app-page space-y-6 hidden">
+                        <h1 class="text-2xl font-bold text-[#1B4332]">Your Progress</h1>
+                        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
+                            <h3 class="font-bold text-[#1B4332]">Wellness Progress (30-day)</h3>
+                            <p class="text-xs text-gray-500 mt-2">คะแนนรวมเฉลี่ย 78%</p>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 11: WELLIO AI -->
+                    <div id="page-11" class="app-page space-y-6 hidden">
+                        <h1 class="text-2xl font-bold text-[#1B4332]">WELLIO AI</h1>
+                        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm text-center">
+                            <div class="w-16 h-16 bg-[#E8F5E9] rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">🤖</div>
+                            <h3 class="font-bold text-[#1B4332]">วันนี้ WELLIO ช่วยอะไรคุณได้บ้าง?</h3>
+                            <div class="mt-4 flex flex-wrap gap-2 justify-center text-xs">
+                                <button class="px-3 py-2 bg-gray-50 border rounded-xl hover:bg-gray-100">"วันนี้ควรกินอะไร?"</button>
+                                <button class="px-3 py-2 bg-gray-50 border rounded-xl hover:bg-gray-100">"วันนี้ควรออกกำลังกายอะไร?"</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PAGE 12: PROFILE -->
+                    <div id="page-12" class="app-page space-y-6 hidden">
+                        <h1 class="text-2xl font-bold text-[#1B4332]">My Profile</h1>
+                        <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm space-y-4 text-xs">
+                            <div><span class="text-gray-400">ชื่อ:</span> <span class="font-bold">อเล็กซ์</span></div>
+                            <div><span class="text-gray-400">อายุ:</span> <span class="font-bold">21 ปี</span></div>
+                            <div><span class="text-gray-400">น้ำหนัก:</span> <span class="font-bold">65 กก.</span></div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+    </div>
+
+    <!-- LOGIC TO SWITCH PAGES -->
+    <script>
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function startAiProcessing() {
+            document.getElementById('summary-view').classList.add('hidden');
+            document.getElementById('ai-loading').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('public-layout').classList.add('hidden');
+                document.getElementById('app-layout').classList.remove('hidden');
+                navigateToApp('page-05');
+            }, 1500);
+        }
+
+        function navigateToApp(pageId) {
+            document.querySelectorAll('.app-page').forEach(p => p.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+
+            document.querySelectorAll('aside nav button, aside div button').forEach(btn => btn.classList.remove('active-nav'));
+            const activeBtn = document.getElementById('nav-' + pageId);
+            if(activeBtn) activeBtn.classList.add('active-nav');
+
+            const pageTitles = {
+                'page-05': 'Dashboard',
+                'page-06': 'Nutrition',
+                'page-07': 'Exercise',
+                'page-08': 'Hydration',
+                'page-09': 'Sleep',
+                'page-10': 'Progress',
+                'page-11': 'WELLIO AI',
+                'page-12': 'Profile'
+            };
+            document.getElementById('app-title').innerText = pageTitles[pageId] || 'WELLIO';
+        }
+    </script>
+</body>
+</html>
